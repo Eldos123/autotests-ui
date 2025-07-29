@@ -2,20 +2,22 @@ import pytest
 from playwright.sync_api import expect, Page
 
 
-@pytest.mark.regression
 @pytest.mark.courses
+@pytest.mark.regression
 def test_empty_courses_list(chromium_page_with_state: Page):
-    courses_input = chromium_page_with_state.get_by_test_id('courses-list-toolbar-title-text')
-    expect(courses_input).to_be_visible()
-    expect(courses_input).to_have_text('Courses')
+    chromium_page_with_state.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
 
-    results_courses_icon_input = chromium_page_with_state.get_by_test_id('courses-list-empty-view-icon')
-    expect(results_courses_icon_input).to_be_visible()
+    courses_title = chromium_page_with_state.get_by_test_id('courses-list-toolbar-title-text')
+    expect(courses_title).to_be_visible()
+    expect(courses_title).to_have_text('Courses')
 
-    results_courses_title_input = chromium_page_with_state.get_by_test_id('courses-list-empty-view-title-text')
-    expect(results_courses_title_input).to_be_visible()
-    expect(results_courses_title_input).to_have_text('There is no results')
+    empty_view_icon = chromium_page_with_state.get_by_test_id('courses-list-empty-view-icon')
+    expect(empty_view_icon).to_be_visible()
 
-    results_courses_description_input = chromium_page_with_state.get_by_test_id('courses-list-empty-view-description-text')
-    expect(results_courses_description_input).to_be_visible()
-    expect(results_courses_description_input).to_have_text('Results from the load test pipeline will be displayed here')
+    empty_view_title = chromium_page_with_state.get_by_test_id('courses-list-empty-view-title-text')
+    expect(empty_view_title).to_be_visible()
+    expect(empty_view_title).to_have_text('There is no results')
+
+    empty_view_description = chromium_page_with_state.get_by_test_id('courses-list-empty-view-description-text')
+    expect(empty_view_description).to_be_visible()
+    expect(empty_view_description).to_have_text('Results from the load test pipeline will be displayed here')
