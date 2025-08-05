@@ -13,14 +13,14 @@ class LoginFormComponent(BaseComponent):
 
     def fill(self, email: str, password: str):
         self.email_input.fill(email)
-        expect(self.email_input.get_locator()).to_have_value(email)
+        self.email_input.check_have_value(email)
 
         self.password_input.fill(password)
-        expect(self.password_input.get_locator()).to_have_value(password)
+        self.password_input.check_have_value(password)
 
     def check_visible(self, email: str, password: str):
-        expect(self.email_input.get_locator()).to_be_visible()
-        expect(self.email_input.get_locator()).to_have_value(email)
+        self.email_input.check_visible()
+        self.email_input.check_have_value(email)
 
-        expect(self.password_input.get_locator()).to_be_visible()
-        expect(self.password_input.get_locator()).to_have_value(password)
+        self.password_input.check_visible()
+        self.password_input.check_have_value(password)
