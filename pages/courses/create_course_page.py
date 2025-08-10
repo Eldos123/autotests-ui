@@ -20,7 +20,7 @@ class CreateCoursePage(BasePage):
 
         self.create_exercise_form = CreateCourseExerciseFormComponent(page)
 
-        self.create_course_toolbar = CreateCourseToolbarViewComponent(page)
+        self.create_course_toolbar_view = CreateCourseToolbarViewComponent(page)
 
         self.create_exercise_toolbar = CreateCourseExercisesToolbarViewComponent(page)
 
